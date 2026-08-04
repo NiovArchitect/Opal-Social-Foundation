@@ -5,8 +5,8 @@
   "type": "module",
   "description": "Opal Social Foundation — Phase 1 synthetic event path",
   "scripts": {
-    "test": "node --test test/ && node scripts/validate-contracts.mjs",
-    "test:unit": "node --test test/",
+    "test": "node --test test/*.test.mjs && node scripts/validate-contracts.mjs",
+    "test:unit": "node --test test/*.test.mjs",
     "test:contracts": "node scripts/validate-contracts.mjs",
     "lint": "node scripts/validate-contracts.mjs",
     "dev:up": "DOCKER_HOST=${DOCKER_HOST:-unix://$HOME/.colima/default/docker.sock} docker compose up -d",
@@ -16,7 +16,9 @@
     "consumer": "node src/consumers/audit_consumer.mjs",
     "fixture:publish": "node scripts/publish-fixture.mjs",
     "replay": "node scripts/replay-projection.mjs",
-    "phase1:smoke": "node scripts/phase1-smoke.mjs"
+    "phase1:smoke": "node scripts/phase1-smoke.mjs",
+    "bridge:opal-shaped": "node scripts/bridge-from-opal-outbox.mjs",
+    "phase2:smoke": "node scripts/bridge-from-opal-outbox.mjs"
   },
   "dependencies": {
     "kafkajs": "^2.2.4",
