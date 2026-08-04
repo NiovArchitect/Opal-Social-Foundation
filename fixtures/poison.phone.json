@@ -1,0 +1,15 @@
+{
+  "event_id": "evt_fixture_poison_001",
+  "event_type": "invitation.accepted",
+  "event_version": 1,
+  "occurred_at": "2026-08-04T12:00:00.000Z",
+  "recorded_at": "2026-08-04T12:00:01.000Z",
+  "producer": "opal_core_fixture",
+  "partition_key": "inv_bad",
+  "topic_family": "opal.invitation.events",
+  "privacy_class": "restricted",
+  "payload": {
+    "invitation_id": "inv_bad",
+    "phone": "+12025550101"
+  }
+}

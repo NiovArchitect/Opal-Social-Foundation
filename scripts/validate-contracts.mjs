@@ -24,6 +24,12 @@ const required = [
   "docs/SECURITY_MODEL.md",
   "docs/PRIVACY_MODEL.md",
   "docs/PHASE1_FIRST_SLICE.md",
+  "docs/PHASE1_RUNBOOK.md",
+  "docs/evidence/PHASE1_LEDGER.md",
+  "docker-compose.yml",
+  "fixtures/invitation.accepted.json",
+  "src/ingress/server.mjs",
+  "src/consumers/audit_consumer.mjs",
   "templates/agents/capability.template.json",
   "templates/providers/connector.template.json",
 ];

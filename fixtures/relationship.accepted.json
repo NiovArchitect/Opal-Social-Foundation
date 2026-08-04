@@ -1,0 +1,26 @@
+{
+  "event_id": "evt_fixture_rel_accepted_001",
+  "event_type": "relationship.accepted",
+  "event_version": 1,
+  "occurred_at": "2026-08-04T12:00:02.000Z",
+  "recorded_at": "2026-08-04T12:00:03.000Z",
+  "producer": "opal_core_fixture",
+  "aggregate_type": "relationship_establishment",
+  "aggregate_id": "rel_fixture_001",
+  "sequence": 1,
+  "correlation_id": "corr_fixture_001",
+  "causation_id": "evt_fixture_inv_accepted_001",
+  "tenant_scope": "opal",
+  "relationship_scope": "rel_fixture_001",
+  "privacy_class": "restricted",
+  "purpose": "relationship_onboarding",
+  "trace_context": {},
+  "topic_family": "opal.relationship.events",
+  "partition_key": "rel_fixture_001",
+  "payload": {
+    "relationship_id": "rel_fixture_001",
+    "invitation_id": "inv_fixture_001",
+    "conversation_id": "conv_fixture_001",
+    "no_historical_messages": true
+  }
+}

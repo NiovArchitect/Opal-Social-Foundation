@@ -7,3 +7,4 @@ node_modules/
 *.key
 secrets/
 .direnv/
+node_modules/

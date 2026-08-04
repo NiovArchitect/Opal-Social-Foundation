@@ -1,10 +1,25 @@
 {
   "name": "opal-social-foundation",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "private": true,
-  "description": "Phase 0 contracts and isolation for Opal Social Foundation",
+  "type": "module",
+  "description": "Opal Social Foundation — Phase 1 synthetic event path",
   "scripts": {
-    "test": "node scripts/validate-contracts.mjs",
-    "lint": "node scripts/validate-contracts.mjs"
+    "test": "node --test test/**/*.test.mjs && node scripts/validate-contracts.mjs",
+    "test:unit": "node --test test/**/*.test.mjs",
+    "test:contracts": "node scripts/validate-contracts.mjs",
+    "lint": "node scripts/validate-contracts.mjs",
+    "dev:up": "DOCKER_HOST=${DOCKER_HOST:-unix://$HOME/.colima/default/docker.sock} docker compose up -d",
+    "dev:down": "DOCKER_HOST=${DOCKER_HOST:-unix://$HOME/.colima/default/docker.sock} docker compose down",
+    "dev:topic": "node scripts/ensure-topic.mjs",
+    "ingress": "node src/ingress/server.mjs",
+    "consumer": "node src/consumers/audit_consumer.mjs",
+    "fixture:publish": "node scripts/publish-fixture.mjs",
+    "replay": "node scripts/replay-projection.mjs",
+    "phase1:smoke": "node scripts/phase1-smoke.mjs"
+  },
+  "dependencies": {
+    "kafkajs": "^2.2.4",
+    "pg": "^8.13.1"
   }
 }
