@@ -1,0 +1,16 @@
+{
+  "agent_id": "agent.example.restaurant",
+  "display_name": "Example Restaurant Agent",
+  "capabilities": [
+    {
+      "name": "restaurant.search",
+      "version": 1,
+      "purposes": ["experience_coordination"],
+      "max_concurrency": 10,
+      "timeout_ms": 8000
+    }
+  ],
+  "requires_avp2": true,
+  "data_classes_allowed": ["shared_authorized", "internal"],
+  "notes": "Template only. Not a live agent."
+}

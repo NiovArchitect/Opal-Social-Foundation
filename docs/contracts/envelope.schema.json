@@ -1,0 +1,50 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://niovlabs.example/opal-social-foundation/envelope.schema.json",
+  "title": "OpalSocialFoundationEventEnvelope",
+  "type": "object",
+  "required": [
+    "event_id",
+    "event_type",
+    "event_version",
+    "occurred_at",
+    "recorded_at",
+    "producer",
+    "partition_key",
+    "topic_family",
+    "privacy_class",
+    "payload"
+  ],
+  "properties": {
+    "event_id": { "type": "string", "minLength": 8 },
+    "event_type": { "type": "string", "minLength": 3 },
+    "event_version": { "type": "integer", "minimum": 1 },
+    "occurred_at": { "type": "string" },
+    "recorded_at": { "type": "string" },
+    "producer": { "type": "string" },
+    "aggregate_type": { "type": ["string", "null"] },
+    "aggregate_id": { "type": ["string", "null"] },
+    "sequence": { "type": ["integer", "null"] },
+    "correlation_id": { "type": ["string", "null"] },
+    "causation_id": { "type": ["string", "null"] },
+    "tenant_scope": { "type": "string" },
+    "relationship_scope": { "type": ["string", "null"] },
+    "privacy_class": {
+      "type": "string",
+      "enum": [
+        "public",
+        "internal",
+        "shared_authorized",
+        "private_authorized",
+        "restricted",
+        "prohibited_in_stream"
+      ]
+    },
+    "purpose": { "type": ["string", "null"] },
+    "trace_context": { "type": "object" },
+    "topic_family": { "type": "string" },
+    "partition_key": { "type": "string", "minLength": 1 },
+    "payload": { "type": "object" }
+  },
+  "additionalProperties": true
+}

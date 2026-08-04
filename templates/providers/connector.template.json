@@ -1,0 +1,9 @@
+{
+  "provider_id": "provider.example.availability",
+  "protocol": "https+json",
+  "auth": "service_identity_placeholder",
+  "requests_topic": "opal.provider.requests",
+  "results_topic": "opal.provider.results",
+  "idempotency": true,
+  "notes": "Template only. No production connection."
+}
