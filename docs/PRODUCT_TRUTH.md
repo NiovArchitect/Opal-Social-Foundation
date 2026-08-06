@@ -7,8 +7,8 @@ Enable Opal (and later products) to safely:
 - communicate with external systems
 - coordinate company agents
 - ingest durable streams
-- authorize actions (with AVP²)
-- execute and reconcile transactions
+- carry payment authorization events (AVP² = **payments only**; device/social permissions are Opal-owned)
+- execute and reconcile **payment** transactions
 - retain replayable events
 - rebuild projections
 - support audit and proof

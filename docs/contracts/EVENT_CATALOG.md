@@ -11,8 +11,38 @@
 | reservation.requested | opal.reservation.events | reservation_id | foundation | internal | providers |
 | reservation.confirmed | opal.reservation.events | reservation_id | foundation | shared_authorized | opal, audit, payments |
 | payment.authorized | opal.payment.events | payment_id | foundation | restricted | audit, reconciliation |
-| avp2.permission.granted | opal.avp2.authorization.events | agent_id | avp2 | internal | foundation agent plane |
-| avp2.permission.revoked | opal.avp2.authorization.events | agent_id | avp2 | internal | foundation agent plane |
+| avp2.payment.requested | opal.avp2.authorization.events | payment_id | avp2 | restricted | foundation, audit |
+| avp2.payment_terms.presented | opal.avp2.authorization.events | payment_id | avp2 | restricted | foundation, audit |
+| avp2.payment.authorized | opal.avp2.authorization.events | payment_id | avp2 | restricted | foundation, audit, reconciliation |
+| avp2.payment.declined | opal.avp2.authorization.events | payment_id | avp2 | restricted | foundation, audit |
+| avp2.payment.captured | opal.avp2.authorization.events | payment_id | avp2 | restricted | foundation, audit, reconciliation |
+| avp2.payment_split.requested | opal.avp2.authorization.events | payment_id | avp2 | restricted | foundation, audit |
+| avp2.payment_split.completed | opal.avp2.authorization.events | payment_id | avp2 | restricted | foundation, audit, reconciliation |
+| avp2.refund.requested | opal.avp2.authorization.events | payment_id | avp2 | restricted | foundation, audit |
+| avp2.refund.completed | opal.avp2.authorization.events | payment_id | avp2 | restricted | foundation, audit |
+| avp2.transaction.reconciled | opal.avp2.authorization.events | payment_id | avp2 | restricted | foundation, audit, reconciliation |
 | provider.action.failed | opal.provider.results | request_id | foundation | internal | audit, retry |
 
-Expand only with schema ownership and version policy.
+**AVP² is payments only.** Do not add `avp2.permission.*` for device/location/calls.
+
+Device capability events use a **different namespace** (Opal-owned; catalogued here for cross-repo clarity; not Foundation runtime):
+
+```text
+device.capability.granted
+device.capability.revoked
+device.action.requested
+device.action.approved
+device.action.completed
+device.action.failed
+```
+
+See Opal `docs/product/OPAL_DEVICE_CAPABILITY_SYSTEM.md` and Foundation `docs/AVP2_BOUNDARY.md`.
+
+Deprecated (do not implement as general capability grants under AVP²):
+
+| event_type | note |
+|------------|------|
+| avp2.permission.granted | Incorrect general capability event; use `device.capability.*` / Opal domain |
+| avp2.permission.revoked | Incorrect general capability event; use `device.capability.*` / Opal domain |
+
+Expand only with schema ownership and version policy. No production Kafka connection or Opal runtime integration is implied by this catalog.
